@@ -1,26 +1,46 @@
 <?php
 
-use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends Eloquent implements UserInterface 
+{
+    public function getAuthIdentifier() 
+    {
+        return $this->getKey();
+    }
 
-	use UserTrait, RemindableTrait;
+    public function getAuthPassword() 
+    {
+        return $this->password;
+    }
+    
+    public function projects()
+    {
+        return $this->hasMany('Project');
+    }
+    
+    public function owns(Project $project)
+    {
+        return $this->id == $project->owner;
+    }
+    
+    public function canEdit(Cat $project)
+    {
+        return $this->is_admin or $this->owns($project);
+    }
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
+    public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
 
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
+    }
 }
