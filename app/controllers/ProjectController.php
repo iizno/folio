@@ -30,11 +30,13 @@ class ProjectController extends BaseController {
                     $screenshot->save();
                     $project->screenshots()->save($screenshot);
                     $file->move(public_path('upload'), $filename);
+                    // Save the miniature
+                    Image::make(public_path('upload').'/'.$filename)->resize(300, 200)->save(public_path('upload').'/tn-'.$filename);
                 }
             }
         }
 
-        return Redirect::to('/chocolat/project/' . $project->id)
+        return Redirect::to('/chocolat/project/' . $project->id.'/edit')
             ->with('message', 'Nouveau projet créé !');
     }
 

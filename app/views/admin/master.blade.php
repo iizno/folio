@@ -40,6 +40,31 @@
                         <a href="{{ url('/chocolat/projects') }}">Projects</a>
                     </li>
                 </ul>
+
+                <div class="quick-form-project">
+                @if(isset($project))
+                    {{ Form::model($project, 
+                        array(
+                            'method' => "POST", 
+                            'files' => true,
+                            'id' => "quick-form", 
+                            'url' => '/chocolat/projects/' )) 
+                    }}
+                    
+                    <input type="hidden" name="name" value="Sans titre">
+                    <input type="hidden" name="category_id" value="4">
+
+                    {{ Form::file('screenshots[]', 
+                        array( 
+                            'class' => "quick-dropzone",
+                            'id' => "quick-file-upload",
+                            'multiple' => true )) 
+                    }}
+                    
+                    {{ Form::close() }}
+                @endif
+                </div>
+
             </div>
         </div>
         
@@ -108,11 +133,16 @@
 
     }(this, this.document));
 
-    ;( function( $ ) {
+    $("document").ready(function(){
 
         $( '.swipebox' ).swipebox();
+        
+        $( '#quick-file-upload' ).change(function() {
+            
+            $( '#quick-form' ).submit();
+        });
 
-    } )( jQuery );
+    });
 
     </script>
 

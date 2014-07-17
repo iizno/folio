@@ -33,7 +33,7 @@
                 <td>{{{ $project->name }}}</td>
                 <td>{{{ $project->category->name }}}</td>
                 <td>
-                    <a href="{{ url('/chocolat/project/'.$project->id) }}" class="pure-button pure-button-small">Voir</a>
+                    <!-- <a href="{{ url('/chocolat/project/'.$project->id) }}" class="pure-button pure-button-small">Voir</a> -->
                     <a href="{{ url('/chocolat/project/'.$project->id.'/edit') }}" class="pure-button pure-button-small pure-button-secondary">Modifier</a>
                     <a href="{{ url('/chocolat/project/'.$project->id.'/delete') }}" class="pure-button pure-button-small pure-button-error">Supprimer</a>
                 </td>
