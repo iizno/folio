@@ -33,7 +33,12 @@
 		"preferred-install": "dist"
 	},
     "suggest": {
-        "doctrine/dbal": "Allow renaming columns and dropping SQLite columns."
+        
     },
-	"minimum-stability": "stable"
+	"minimum-stability": "stable",
+	"require-dev": {
+		"way/generators": "dev-master",
+        "doctrine/dbal": "~2.3",
+        "intervention/image": "2.*"
+	}
 }

@@ -5,13 +5,20 @@
 @stop
 
 @section('content')
-    {{Form::open()}}
-    <div class="form-group">
-        {{Form::label('Username')}} {{Form::text('username')}}
-    </div>
-    <div class="form-group">
-        {{Form::label('Password')}} {{Form::password('password')}}
-    </div>
-    {{Form::submit()}}
-    {{Form::close()}}
+    {{ Form::open( array('class' => "pure-form pure-form-stacked")) }}
+
+        <h2></h2>
+
+        {{ Form::label('Login') }} 
+        {{ Form::text('username') }}
+        
+        {{ Form::label('Password') }} 
+        {{ Form::password('password') }}
+
+        {{ Form::submit('se connecter', array('class' => "pure-button")) }}
+
+    </fieldset>
+
+    
+    {{ Form::close() }}
 @stop

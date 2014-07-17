@@ -13,99 +13,41 @@
 
 Route::model('project', 'Project');
 
-Route::get('/', function() {
-    return "Public";
-});
+// Public
+
+Route::get('/', 'HomeController@showIndex');
+Route::get('/about', 'HomeController@showAbout');
+
+// Login 
+
+Route::get('login', 'HomeController@showLogin');
+Route::post('login', 'HomeController@doLogin');
 
 // Administration :: Chocolat 
 
-Route::get('login', function(){
-    return View::make('admin.login');
-});
-
-Route::post('login', function() {
-     if(Auth::attempt(Input::only('username', 'password'))) {
-        return Redirect::to('/chocolat/projects/');
-     } else {
-        return Redirect::back()
-            ->withInput()
-            ->with('error', "Mot de passe / User faux.");
-     }
-});
-
 Route::group(array('before'=>'auth'), function() {
 
-    Route::get('/chocolat/', function() {
-        return "Admin";
-    });
-
-    Route::get('logout', function(){
-        Auth::logout();
-        return Redirect::to('login')->with('message', 'Vous n\'êtes plus connecté.');
-    });
-
+    Route::get('/chocolat/', 'HomeController@showAdminIndex');
+    Route::get('logout', 'HomeController@doLogout');
 
     // Projects
 
-    Route::get('chocolat/project/create', function() {
-        $project = new Project;
-        return View::make('admin.projects.edit')
-            ->with('project', $project)
-            ->with('method', 'post');
-    });
+    Route::get('/chocolat/projects/', 'ProjectController@index');
+    
+    Route::get('/chocolat/project/create', 'ProjectController@create');
+    Route::post('/chocolat/projects', 'ProjectController@createPost');
+    
+    Route::get('/chocolat/project/{id}/edit', 'ProjectController@edit');
+    
+    Route::get('/chocolat/project/{project}', 'ProjectController@show');
+    Route::put('/chocolat/project/{project}', 'ProjectController@editPut');
+    Route::delete('/chocolat/project/{project}', 'ProjectController@deletePost');
 
-    Route::get('/chocolat/project/{project}/edit', function(Project $project) {
-        return View::make('admin.projects.edit')
-            ->with('project', $project)
-            ->with('method', 'put');
-    });
+    Route::get('/chocolat/project/{project}/delete', 'ProjectController@delete');
 
-    Route::get('/chocolat/project/{project}/delete', function(Project $project) {
-        return View::make('admin.projects.edit')
-            ->with('project', $project)
-            ->with('method', 'delete');
-    });
+    // Projects / Categories
 
-    Route::get('/chocolat/projects/', function() 
-    {    
-        $projects = Project::all();
-        return View::make('admin.projects.index')
-            ->with('projects', $projects);
-    });
-
-    Route::get('/chocolat/projects/categories/{name}', function($name){
-         $category = Category::whereName($name)->with('projects')->first();
-         return View::make('admin.projects.index')
-           ->with('category', $category)
-           ->with('projects', $category->projects);
-    });
-
-    Route::get('/chocolat/project/{project}', function(Project $project) {
-        return View::make('admin.projects.single')
-            ->with('project', $project);
-    });
-
-    Route::post('/chocolat/projects', function(){
-        $project = Project::create(Input::all());
-        return Redirect::to('/chocolat/project/' . $project->id)
-            ->with('message', 'Nouveau projet créé !');
-    });
-
-    Route::put('/chocolat/project/{project}', function(Project $project) {
-        $project->update(Input::all());
-        return Redirect::to('/chocolat/project/' . $project->id)
-            ->with('message', 'Projet mis à jour !');
-    });
-
-    Route::delete('/chocolat/project/{project}', function(Project $project) {
-        $project->delete();
-        return Redirect::to('/chocolat/projects')
-            ->with('message', 'Projet supprimé !');
-    });
-
-    Route::get('/about', function() {
-        return View::make('about')->with('numberOfProjects', 10);
-    });
+    Route::get('/chocolat/projects/categories/{name}', 'ProjectController@showByCategory');
 
     // View Composer
 

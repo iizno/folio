@@ -8,10 +8,14 @@
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.swipebox.min.js') }}"></script>
+
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-        <link rel="stylesheet" href="{{ asset('pure-css-extra.css') }}">
-        <link rel="stylesheet" href="{{ asset('sidemenu.css') }}" media="all">
-        <link rel="stylesheet" href="{{ asset('admin.css') }}" media="all">
+        <link rel="stylesheet" href="{{ asset('css/pure-css-extra.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/swipebox.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/sidemenu.css') }}" media="all">
+        <link rel="stylesheet" href="{{ asset('css/admin.css') }}" media="all">
 </head>
 <body>
     
@@ -23,7 +27,7 @@
 
         <div class="connected-header">
         @if(Auth::check())
-            Bonjour, <strong>{{{Auth::user()->username}}}</strong> {{link_to('logout', 'Déconnexion')}}
+            Bonjour, <strong>{{{ Auth::user()->username }}}</strong> {{ link_to('logout', 'Déconnexion') }}
         @endif
         </div>
 
@@ -103,6 +107,12 @@
         };
 
     }(this, this.document));
+
+    ;( function( $ ) {
+
+        $( '.swipebox' ).swipebox();
+
+    } )( jQuery );
 
     </script>
 

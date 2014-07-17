@@ -1,0 +1,16 @@
+.connected-header
+{
+    float:right;
+    padding: 10px;
+}
+
+.dropzone
+{
+    background: none repeat scroll 0% 0% rgba(239, 239, 239, 1);
+    padding: 65px;
+}
+
+.currents-screenshots img
+{
+    height:200px;
+}
