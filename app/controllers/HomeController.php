@@ -4,7 +4,7 @@ class HomeController extends BaseController {
 
     public function showIndex()
     {
-        return "Public index";
+        return View::make('index');
     }
 
     public function showLogin()

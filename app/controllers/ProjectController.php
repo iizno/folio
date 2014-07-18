@@ -31,7 +31,7 @@ class ProjectController extends BaseController {
                     $project->screenshots()->save($screenshot);
                     $file->move(public_path('upload'), $filename);
                     // Save the miniature
-                    Image::make(public_path('upload').'/'.$filename)->resize(300, 200)->save(public_path('upload').'/tn-'.$filename);
+                    Image::make(public_path('upload').'/'.$filename)->heighten(200)->save(public_path('upload').'/tn-'.$filename);
                 }
             }
         }
@@ -83,7 +83,7 @@ class ProjectController extends BaseController {
                     $file->move(public_path('upload'), $filename);
 
                     // Save the miniature
-                    Image::make(public_path('upload').'/'.$filename)->resize(300, 200)->save(public_path('upload').'/tn-'.$filename);
+                    Image::make(public_path('upload').'/'.$filename)->heighten(200)->save(public_path('upload').'/tn-'.$filename);
                 }
             }
         }

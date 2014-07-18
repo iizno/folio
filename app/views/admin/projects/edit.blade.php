@@ -97,15 +97,15 @@
                             <a rel="gallery" href="{{ asset('upload/' . $screenshot->name) }}" class="swipebox pure-thumb pure-thumb-bordered">
                                 
                                 <img src="{{ asset('upload/tn-' . $screenshot->name) }}">
-                                <div class="caption">
-                                    <p>
-                                    <label>
-                                        <input type="checkbox" name="deleteFiles[]" value="{{ $screenshot->id }}"> Supprimer
-                                    </label>
-                                    </p>
-                                </div>
 
                             </a>
+                            <div class="caption">
+                                <p>
+                                <label>
+                                    <input type="checkbox" name="deleteFiles[]" value="{{ $screenshot->id }}"> Supprimer
+                                </label>
+                                </p>
+                            </div>
 
                         </li>
                         @endforeach
