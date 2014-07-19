@@ -227,48 +227,6 @@ h1,h2,h3,h4,h5,h6 {
             text-decoration: none;
         }
 
-.text-box {
-    background: rgb(49, 49, 49); /* bluish grey */
-    color: rgb(255, 190, 94); /* steel blue */
-}
-
-    .text-box-head {
-        color: #fff;
-        padding-bottom: 0.2em;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-size: 24px;
-    }
-
-    .text-box-subhead {
-        font-weight: normal;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-    }
-
-.form-box {
-    text-align: center;
-    font-size: 120%;
-    border-bottom: 1px solid #eee;
-}
-
-    .form-box .pure-button {
-        background-color: #61B842;
-        color: white;
-        vertical-align: top;
-        font-size: 85%;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        border-radius: 4px;
-        margin: 0.3em;
-    }
-    .pure-form input[type] {
-        margin: 0.3em auto;
-        text-align: center;
-    }
-
 .footer {
     background: #111;
     color: #666;
@@ -292,11 +250,15 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .pure-menu.pure-menu-horizontal > ul {
-    float:right;
+    position: absolute;
+    left: 60%;
 }
 
 .pure-menu li a  {
-    padding: 17px 25px;
+    padding: 18px 25px;
+    border:none;
+    outline: 0;
+    outline: none,
 }
 
 .pure-menu a, .pure-menu .pure-menu-can-have-children > li:after {
@@ -307,8 +269,10 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: normal;
 }
 
-.pure-menu li a:hover, .pure-menu li a:focus {
+.pure-menu li a:hover, .pure-menu li a:focus,
+.pure-menu .pure-menu-selected a {
     background-color: #bd5532;
+    color:white;
 }
 
 .photo-box-web {
@@ -336,12 +300,32 @@ h1,h2,h3,h4,h5,h6 {
     background: url('../img/web.jpg') no-repeat center center transparent;
 }
 
-.photo-box a
-{
+.photo-box a {
     position: absolute;
     display: block;
     top:0;
     left:0;
     bottom:0;
     right:0;
+}
+
+.pure-menu.pure-menu-open.pure-menu-fixed {
+    border:none;
+}
+
+.section-wrapper {
+    background: #bd5532;
+    color:white;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    right:0;
+    left: 60%;
+    padding:30px;
+    text-align: justify;
+    overflow: scroll;
+}
+
+.section-wrapper-hide {
+    display:none;
 }

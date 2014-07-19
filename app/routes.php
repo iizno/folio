@@ -15,8 +15,7 @@ Route::model('project', 'Project');
 
 // Public
 
-Route::get('/', 'HomeController@showIndex');
-Route::get('/about', 'HomeController@showAbout');
+Route::get('/{activeSection?}', 'HomeController@showIndex');
 
 // Login 
 

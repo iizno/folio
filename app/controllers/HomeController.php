@@ -2,8 +2,9 @@
 
 class HomeController extends BaseController {
 
-    public function showIndex()
+    public function showIndex($activeSection = "none")
     {
+        View::share('activeSection', $activeSection);
         return View::make('index');
     }
 
