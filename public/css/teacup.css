@@ -194,46 +194,8 @@ h1,h2,h3,h4,h5,h6 {
 
 
     .photo-box img {
-        max-width: 100%;
-        height: auto;
-        min-height: 250px;
-    }
-
-    .photo-box aside {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 1em 0.5em;
-        color: white;
-        width: 100%;
-        font-size: 80%;
-        text-align: right;
-        background: -moz-linear-gradient(top,  rgba(16,27,30,0) 0%, rgba(12,2,2,1) 90%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(16,27,30,0)), color-stop(90%,rgba(12,2,2,1))); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(top,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* IE10+ */
-        background: linear-gradient(to bottom,  rgba(16,27,30,0) 0%,rgba(12,2,2,1) 90%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00101b1e', endColorstr='#0c0202',GradientType=0 ); /* IE6-9 */
 
     }
-
-    .photo-box aside span {
-        color: #aaa;
-    }
-
-        .photo-box aside span a {
-            color: #ccc;
-            text-decoration: none;
-        }
-
-.footer {
-    background: #111;
-    color: #666;
-    text-align: center;
-    padding: 1em;
-    font-size: 80%;
-}
 
 @media (min-width: 30em) {
     .photo-box, .text-box {
@@ -277,36 +239,27 @@ h1,h2,h3,h4,h5,h6 {
 
 .photo-box-web {
     width:66%;
-    background: url('../img/web.jpg') no-repeat center center transparent;
+    background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .photo-box-app {
     width:34%;
-    background: url('../img/web.jpg') no-repeat center center transparent;
+    background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .photo-box-design {
     width:33%;
-    background: url('../img/web.jpg') no-repeat center center transparent;
+    background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .photo-box-game {
     width:33%;
-    background: url('../img/web.jpg') no-repeat center center transparent;
+    background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .photo-box-art {
     width:34%;
-    background: url('../img/web.jpg') no-repeat center center transparent;
-}
-
-.photo-box a {
-    position: absolute;
-    display: block;
-    top:0;
-    left:0;
-    bottom:0;
-    right:0;
+    background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .pure-menu.pure-menu-open.pure-menu-fixed {
@@ -328,4 +281,48 @@ h1,h2,h3,h4,h5,h6 {
 
 .section-wrapper-hide {
     display:none;
+}
+
+/* Dust Effect */
+
+.photo-box a {
+    position: absolute;
+    display: block;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    overflow: hidden;
+    z-index: 4;
+}
+
+.photo-box a img {
+    width:auto;
+    height:auto;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left: -28px;
+    margin-top: -17px;
+    z-index: 3;
+}
+
+.dust-one {
+    z-index: 2;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: url('../img/web/2.png') no-repeat center center transparent; 
+}
+
+.dust-two {
+    z-index: 1;
+    position: absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;    
+    background: url('../img/web/3.png') no-repeat center center transparent;
 }
