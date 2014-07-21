@@ -78,11 +78,13 @@
 
     function enabledDustEffect(id, direction, vitesse) {
         if(direction == 1) {
-            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=3'}, 2000, "linear");
-            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=10'}, 2000, "linear");
+            $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({left:'+=1'}, 2000, "linear");
+            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=2'}, 2000, "linear");
+            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=3'}, 2000, "linear");
         } else {
-            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=3'}, 2000, "linear");
-            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=10'}, 2000, "linear");
+            $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({left:'-=1'}, 2000, "linear");
+            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=2'}, 2000, "linear");
+            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=3'}, 2000, "linear");
         }
     }
     </script>
