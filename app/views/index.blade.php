@@ -8,7 +8,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg grayscale"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -17,7 +17,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg grayscale"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -26,7 +26,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg grayscale"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>        
@@ -35,7 +35,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg grayscale"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -44,7 +44,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg grayscale"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -54,6 +54,14 @@
     <script type="text/javascript">
     $(function() {
         
+        // Gestion du hover noir et blanc
+        $(".photo-box").mouseenter(function () {
+            $("#photo-box-"+$(this).data("id")+" .dust-bg").addClass("nongrayscale");
+        });
+        $(".photo-box").mouseout(function () {
+            $("#photo-box-"+$(this).data("id")+" .dust-bg").removeClass("nongrayscale");
+        });
+
         var xPrev = 0;
         // 0 => left
         // 1 => right;
@@ -70,23 +78,23 @@
             } else {
                 direction = 0;
             }
-            vitesse = xPrev<e.pageX;
+            
+            vitesse = Math.abs(xPrev - e.pageX);
             xPrev=e.pageX;
-            enabledDustEffect(hoveredId, direction, vitesse);
+
+            //console.log(vitesse);
+
+            if(direction == 1) {
+                $('#photo-box-'+hoveredId+' .dust-bg').css({left:'+=1'});
+                $('#photo-box-'+hoveredId+' .dust-one').css({left:'+=2'});
+                $('#photo-box-'+hoveredId+' .dust-two').css({left:'+=3'});
+            } else {
+                $('#photo-box-'+hoveredId+' .dust-bg').css({left:'-=1'});
+                $('#photo-box-'+hoveredId+' .dust-one').css({left:'-=2'});
+                $('#photo-box-'+hoveredId+' .dust-two').css({left:'-=3'});
+            }
         });
     });
-
-    function enabledDustEffect(id, direction, vitesse) {
-        if(direction == 1) {
-            $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({left:'+=1'}, 2000, "linear");
-            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=2'}, 2000, "linear");
-            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=3'}, 2000, "linear");
-        } else {
-            $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({left:'-=1'}, 2000, "linear");
-            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=2'}, 2000, "linear");
-            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=3'}, 2000, "linear");
-        }
-    }
     </script>
 
 @stop

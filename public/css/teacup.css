@@ -247,15 +247,23 @@ h1,h2,h3,h4,h5,h6 {
     z-index: 0;
 }
 
-.photo-box-web .dust-bg {
-    background: url('../img/web/1.jpg') no-repeat center center transparent;
+.photo-box-web .dust-bg.grayscale {
+    background: url('../img/web/1-ng.jpg') no-repeat center center transparent;
+}
+
+.photo-box-web .dust-bg.nongrayscale {
+    background: url('../img/web/1.jpg') no-repeat center center transparent;    
 }
 
 .photo-box-web {
     width:66%;
 }
 
-.photo-box-app .dust-bg {
+.photo-box-app .dust-bg.grayscale {
+    background: url('../img/web/1-ng.jpg') no-repeat center center transparent;
+}
+
+.photo-box-app .dust-bg.nongrayscale {
     background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
@@ -263,7 +271,11 @@ h1,h2,h3,h4,h5,h6 {
     width:34%;
 }
 
-.photo-box-design .dust-bg {
+.photo-box-design .dust-bg.grayscale {
+    background: url('../img/web/1-ng.jpg') no-repeat center center transparent;
+}
+
+.photo-box-design .dust-bg.nongrayscale {
     background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
@@ -271,7 +283,11 @@ h1,h2,h3,h4,h5,h6 {
     width:33%;
 }
 
-.photo-box-game .dust-bg {
+.photo-box-game .dust-bg.grayscale {
+    background: url('../img/web/1-ng.jpg') no-repeat center center transparent;
+}
+
+.photo-box-game .dust-bg.nongrayscale {
     background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
@@ -279,10 +295,13 @@ h1,h2,h3,h4,h5,h6 {
     width:33%;
 }
 
-.photo-box-art .dust-bg {
-    background: url('../img/web/1.jpg') no-repeat center center transparent;
+.photo-box-art .dust-bg.grayscale {
+    background: url('../img/web/1-ng.jpg') no-repeat center center transparent;
 }
 
+.photo-box-art .dust-bg.nongrayscale {
+    background: url('../img/web/1.jpg') no-repeat center center transparent;
+}
 .photo-box-art {
     width:34%;
 }
