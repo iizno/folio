@@ -237,29 +237,53 @@ h1,h2,h3,h4,h5,h6 {
     color:white;
 }
 
+.dust-bg {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.photo-box-web .dust-bg {
+    background: url('../img/web/1.jpg') no-repeat center center transparent;
+}
+
 .photo-box-web {
     width:66%;
+}
+
+.photo-box-app .dust-bg {
     background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .photo-box-app {
     width:34%;
+}
+
+.photo-box-design .dust-bg {
     background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .photo-box-design {
     width:33%;
+}
+
+.photo-box-game .dust-bg {
     background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .photo-box-game {
     width:33%;
+}
+
+.photo-box-art .dust-bg {
     background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .photo-box-art {
     width:34%;
-    background: url('../img/web/1.jpg') no-repeat center center transparent;
 }
 
 .pure-menu.pure-menu-open.pure-menu-fixed {

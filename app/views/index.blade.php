@@ -8,6 +8,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -16,6 +17,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -24,6 +26,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>        
@@ -32,6 +35,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -40,6 +44,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -53,6 +58,11 @@
         // 0 => left
         // 1 => right;
         var direction = 0;
+        var hoveredId = 0;
+
+        $('.photo-box').on('mouseenter', function(e) {
+            hoveredId = $(this).data("id");
+        });
 
         $(document).mousemove(function(e) {
             if(xPrev<e.pageX) {
@@ -60,24 +70,19 @@
             } else {
                 direction = 0;
             }
+            vitesse = xPrev<e.pageX;
             xPrev=e.pageX;
-        });
-
-        $('.photo-box').on('mouseenter', function(e) {
-            
-            console.log(direction);
-            enabledDustEffect($(this).data("id"), direction);
-            
+            enabledDustEffect(hoveredId, direction, vitesse);
         });
     });
 
-    function enabledDustEffect(id, direction) {
+    function enabledDustEffect(id, direction, vitesse) {
         if(direction == 1) {
-            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=60'}, 2000, "easeOutQuint");
-            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=200'}, 2000, "easeOutQuint");
+            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=4'}, 3000, "linear");
+            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=7'}, 3000, "linear");
         } else {
-            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=60'}, 2000, "easeOutQuint");
-            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=200'}, 2000, "easeOutQuint");
+            $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=4'}, 3000, "linear");
+            $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=7'}, 3000, "linear");
         }
     }
     </script>
