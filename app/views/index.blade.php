@@ -8,7 +8,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg grayscale"></div>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -17,7 +17,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg grayscale"></div>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -26,7 +26,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg grayscale"></div>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>        
@@ -35,7 +35,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg grayscale"></div>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -44,7 +44,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg grayscale"></div>
+            <div class="dust-bg"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -52,20 +52,11 @@
     </div>
 
     <div id="preload">
-        <img src="{{ asset('img/web/1.jpg') }}" />
+        <img src="{{ asset('img/web/1-ng.jpg') }}" />
     </div>
 
     <script type="text/javascript">
     $(function() {
-        
-        // Gestion du hover noir et blanc
-        $(".photo-box").mouseenter(function () {
-            $("#photo-box-"+$(this).data("id")+" .dust-bg").addClass("nongrayscale");
-        });
-        $(".photo-box").mouseout(function () {
-            $("#photo-box-"+$(this).data("id")+" .dust-bg").removeClass("nongrayscale");
-        });
-
         var xPrev = 0;
         // 0 => left
         // 1 => right;
