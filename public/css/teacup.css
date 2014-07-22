@@ -320,7 +320,9 @@ h1,h2,h3,h4,h5,h6 {
     left: 60%;
     padding:30px;
     text-align: justify;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 10;
 }
 
 .section-wrapper-hide {
@@ -348,7 +350,6 @@ h1,h2,h3,h4,h5,h6 {
     left:50%;
     margin-left: -28px;
     margin-top: -17px;
-    z-index: 3;
 }
 
 .dust-one {
@@ -370,3 +371,5 @@ h1,h2,h3,h4,h5,h6 {
     right:0;    
     background: url('../img/web/3.png') no-repeat center center transparent;
 }
+
+div#preload { display: none; }

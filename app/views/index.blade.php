@@ -51,6 +51,10 @@
 
     </div>
 
+    <div id="preload">
+        <img src="{{ asset('img/web/1.jpg') }}" />
+    </div>
+
     <script type="text/javascript">
     $(function() {
         
