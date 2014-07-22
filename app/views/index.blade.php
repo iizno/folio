@@ -72,28 +72,48 @@
             hoveredId = $(this).data("id");
         });
 
+        $('.photo-box').on('mouseleave', function(e) {
+            move(hoveredId, direction, true);
+        });
+
         $(document).mousemove(function(e) {
             if(xPrev<e.pageX) {
                 direction = 1;
             } else {
                 direction = 0;
             }
-            
-            vitesse = Math.abs(xPrev - e.pageX);
             xPrev=e.pageX;
-
-            //console.log(vitesse);
-
-            if(direction == 1) {
-                $('#photo-box-'+hoveredId+' .dust-bg').css({left:'+=1'});
-                $('#photo-box-'+hoveredId+' .dust-one').css({left:'+=2'});
-                $('#photo-box-'+hoveredId+' .dust-two').css({left:'+=3'});
-            } else {
-                $('#photo-box-'+hoveredId+' .dust-bg').css({left:'-=1'});
-                $('#photo-box-'+hoveredId+' .dust-one').css({left:'-=2'});
-                $('#photo-box-'+hoveredId+' .dust-two').css({left:'-=3'});
-            }
+            move(hoveredId, direction, false);
         });
+
+        function move(id, direction, inertia) {
+            if(inertia) {
+                if(direction == 1) {
+                    $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({left:'+=3'}, 1000, "linear");
+                    $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=10'}, 1000, "linear");
+                    $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=30'}, 1000, "linear");
+                } else {
+                    $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({left:'-=3'}, 1000, "linear");
+                    $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=10'}, 1000, "linear");
+                    $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=30'}, 1000, "linear");
+                }
+            } else {
+                $('#photo-box-'+id+' .dust-bg').stop(true, true);
+                $('#photo-box-'+id+' .dust-one').stop(true, true);
+                $('#photo-box-'+id+' .dust-two').stop(true, true);
+
+                if(direction == 1) {
+                    $('#photo-box-'+id+' .dust-bg').css({left:'+=1'});
+                    $('#photo-box-'+id+' .dust-one').css({left:'+=2'});
+                    $('#photo-box-'+id+' .dust-two').css({left:'+=3'});
+                } else {
+                    $('#photo-box-'+id+' .dust-bg').css({left:'-=1'});
+                    $('#photo-box-'+id+' .dust-one').css({left:'-=2'});
+                    $('#photo-box-'+id+' .dust-two').css({left:'-=3'});
+                }
+            }
+            
+        }
     });
     </script>
 
