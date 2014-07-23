@@ -81,15 +81,16 @@
 
         $('.photo-box').mousemove(function(e){
             
-            var x = 50 - e.pageX/200;
-
+            var x = 50 - e.pageX/400;
+            console.log(x);
             $('#photo-box-'+$(this).data('id')+' .dust-bg').css('background-position',x+'% 50%');
-            
+
         }); 
 
         function move(id, direction, inertia) {
 
             if(inertia) {
+                $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({'background-position':'50% 50%'}, 1000, "linear");
                 if(direction == 1) {
                     $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=10'}, 1000, "linear");
                     $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=30'}, 1000, "linear");
