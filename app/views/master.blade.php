@@ -11,6 +11,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script type="text/javascript" src="{{ asset('js/jquery.swipebox.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bgPos.js') }}"></script>
 
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
         <link rel="stylesheet" href="{{ asset('css/teacup.css') }}" media="all">

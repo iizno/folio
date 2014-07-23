@@ -8,7 +8,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg" style="background-position: 50% 50%"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -17,7 +17,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg" style="background-position: 50% 50%"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -26,7 +26,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg" style="background-position: 50% 50%"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>        
@@ -35,7 +35,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg" style="background-position: 50% 50%"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -44,7 +44,7 @@
             <a href="#">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
-            <div class="dust-bg"></div>
+            <div class="dust-bg" style="background-position: 50% 50%"></div>
             <div class="dust-one"></div>
             <div class="dust-two"></div>
         </div>
@@ -58,8 +58,6 @@
     <script type="text/javascript">
     $(function() {
         var xPrev = 0;
-        // 0 => left
-        // 1 => right;
         var direction = 0;
         var hoveredId = 0;
 
@@ -81,28 +79,32 @@
             move(hoveredId, direction, false);
         });
 
+        $('.photo-box').mousemove(function(e){
+            
+            var x = 50 - e.pageX/200;
+
+            $('#photo-box-'+$(this).data('id')+' .dust-bg').css('background-position',x+'% 50%');
+            
+        }); 
+
         function move(id, direction, inertia) {
+
             if(inertia) {
                 if(direction == 1) {
-                    $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({left:'+=3'}, 1000, "linear");
                     $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=10'}, 1000, "linear");
                     $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=30'}, 1000, "linear");
                 } else {
-                    $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({left:'-=3'}, 1000, "linear");
                     $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=10'}, 1000, "linear");
                     $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=30'}, 1000, "linear");
                 }
             } else {
-                $('#photo-box-'+id+' .dust-bg').stop(true, true);
                 $('#photo-box-'+id+' .dust-one').stop(true, true);
                 $('#photo-box-'+id+' .dust-two').stop(true, true);
 
                 if(direction == 1) {
-                    $('#photo-box-'+id+' .dust-bg').css({left:'+=1'});
                     $('#photo-box-'+id+' .dust-one').css({left:'+=2'});
                     $('#photo-box-'+id+' .dust-two').css({left:'+=3'});
                 } else {
-                    $('#photo-box-'+id+' .dust-bg').css({left:'-=1'});
                     $('#photo-box-'+id+' .dust-one').css({left:'-=2'});
                     $('#photo-box-'+id+' .dust-two').css({left:'-=3'});
                 }
