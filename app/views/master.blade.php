@@ -9,11 +9,12 @@
         <![endif]-->
         
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script type="text/javascript" src="{{ asset('js/jquery.swipebox.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bgPos.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.wookmark.js') }}"></script>
 
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <link rel="stylesheet" href="{{ asset('css/swipebox.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/teacup.css') }}" media="all">
 </head>
 <body>
@@ -90,12 +91,6 @@
 
     <script type="text/javascript">
     $(function() {
-
-        // Resize the photo-box to the good for in order to take all page
-        $(window).on( 'resize', function () {
-            var height = ( $(window).height() - 60 ) / 2 ; // 60px for the header menu
-            $('.photo-box').height( height );
-        }).resize();
 
         $('.nav-link').on( 'click', function () {
             var section = $(this).data('ref');

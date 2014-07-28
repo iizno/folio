@@ -376,3 +376,41 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 div#preload { display: none; }
+
+/* Category & Project */
+
+.container-category {
+    margin-top: 60px;
+}
+
+.project-hover {
+    display:none;
+}
+
+#projects {
+    list-style-type: none;
+    position: relative; /** Needed to ensure items are laid out relative to this container **/
+    margin: 0;
+    padding: 0;
+}
+
+#projects li {
+    width: 200px;
+    background-color: #ffffff;
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    display: none; /** Hide items initially to avoid a flicker effect **/
+    cursor: pointer;
+    padding: 4px;
+}
+
+#projects li.inactive {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#projects li img {
+  display: block;
+}

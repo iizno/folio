@@ -5,7 +5,7 @@
     <div class="container-home">
 
         <div data-id="1" id="photo-box-1" class="photo-box photo-box-web">
-            <a href="#">
+            <a href="{{ url('/projects/web') }}">
                 <img src="{{ asset('img/web/0.png') }}" />
             </a>
             <div class="dust-bg" style="background-position: 50% 50%"></div>
@@ -69,6 +69,12 @@
             move(hoveredId, direction, true);
         });
 
+        // Resize the photo-box to the good for in order to take all page
+        $(window).on( 'resize', function () {
+            var height = ( $(window).height() - 60 ) / 2 ; // 60px for the header menu
+            $('.photo-box').height( height );
+        }).resize();
+
         $(document).mousemove(function(e) {
             if(xPrev<e.pageX) {
                 direction = 1;
@@ -79,36 +85,39 @@
             move(hoveredId, direction, false);
         });
 
-        $('.photo-box').mousemove(function(e){
-            
-            var x = 50 - e.pageX/400;
-            console.log(x);
-            $('#photo-box-'+$(this).data('id')+' .dust-bg').css('background-position',x+'% 50%');
-
-        }); 
-
         function move(id, direction, inertia) {
 
+            // var bgpos = getBackgroundPos($('#photo-box-'+id+' .dust-bg'));
+            // x = Number(bgpos.x);
+            // console.log(x);
+
             if(inertia) {
-                $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({'background-position':'50% 50%'}, 1000, "linear");
+                
                 if(direction == 1) {
-                    $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=10'}, 1000, "linear");
-                    $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=30'}, 1000, "linear");
+                    $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({'backgroundPosition':'-=0.5% 50%'}, 1000);
+                    $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'+=50'}, 1000);
+                    $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'+=150'}, 1000);
                 } else {
-                    $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=10'}, 1000, "linear");
-                    $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=30'}, 1000, "linear");
+                    $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({'backgroundPosition':'+=0.5% 50%'}, 1000);
+                    $('#photo-box-'+id+' .dust-one').stop(true, true).animate({left:'-=50'}, 1000);
+                    $('#photo-box-'+id+' .dust-two').stop(true, true).animate({left:'-=150'}, 1000);
                 }
+
             } else {
+
                 $('#photo-box-'+id+' .dust-one').stop(true, true);
                 $('#photo-box-'+id+' .dust-two').stop(true, true);
 
                 if(direction == 1) {
-                    $('#photo-box-'+id+' .dust-one').css({left:'+=2'});
-                    $('#photo-box-'+id+' .dust-two').css({left:'+=3'});
+                    $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({'backgroundPosition':'-=0.01% 50%'}, 2000);
+                    $('#photo-box-'+id+' .dust-one').animate({left:'+=3'}, 2000);
+                    $('#photo-box-'+id+' .dust-two').animate({left:'+=6'}, 2000);
                 } else {
-                    $('#photo-box-'+id+' .dust-one').css({left:'-=2'});
-                    $('#photo-box-'+id+' .dust-two').css({left:'-=3'});
+                    $('#photo-box-'+id+' .dust-bg').stop(true, true).animate({'backgroundPosition':'+=0.01% 50%'}, 2000);
+                    $('#photo-box-'+id+' .dust-one').animate({left:'-=3'}, 2000);
+                    $('#photo-box-'+id+' .dust-two').animate({left:'-=6'}, 2000);
                 }
+
             }
             
         }

@@ -55,7 +55,12 @@ apt-get install -y php5-sqlite
 # cURL is a library for getting files from FTP, GOPHER, HTTP server
 apt-get install -y php5-curl
 # Module for MCrypt functions in PHP
+apt-get install -y php5-gd
+# Module for MCrypt functions in PHP
 apt-get install -y php5-mcrypt
+# Module for MCrypt sometimes isn't loaded
+php5enmod mcrypt
+service apache2 restart
 
 # cURL
 # ----
@@ -75,6 +80,7 @@ mv composer.phar /usr/local/bin/composer
 # -------------
 # Load Composer packages
 cd /var/www
+chmod -R 777 app/storage
 composer install --dev
 
 # Set up the database

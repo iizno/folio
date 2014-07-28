@@ -2,10 +2,35 @@
 
 class HomeController extends BaseController {
 
-    public function showIndex($activeSection = "none")
+    public function showIndex()
     {
-        View::share('activeSection', $activeSection);
+        View::share('activeSection', "none");
         return View::make('index');
+    }
+
+    public function showServices()
+    {
+        View::share('activeSection', "services");
+        return View::make('index');
+    }
+
+    public function showAbout()
+    {
+        View::share('activeSection', "about");
+        return View::make('index');
+    }
+
+    public function showContact()
+    {
+        View::share('activeSection', "contact");
+        return View::make('index');
+    }
+
+    public function showCategory($activeCategory = "none")
+    {
+        $projects = Project::all();
+        View::share('activeSection', $activeCategory);
+        return View::make('category')->with('projects', $projects);
     }
 
     public function showLogin()
