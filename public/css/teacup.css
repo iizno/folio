@@ -1,3 +1,9 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .u-1,
 .u-1-1,
 .u-1-2,
@@ -316,7 +322,7 @@ h1,h2,h3,h4,h5,h6 {
 .section-wrapper {
     background: #bd5532;
     color:white;
-    position: absolute;
+    position: fixed;
     top: 60px;
     bottom: 0;
     right:0;
@@ -387,30 +393,44 @@ div#preload { display: none; }
     display:none;
 }
 
-#projects {
+#projects  {
+    margin-top:60px;
     list-style-type: none;
     position: relative; /** Needed to ensure items are laid out relative to this container **/
     margin: 0;
     padding: 0;
 }
 
+/**
+ * Grid items
+ */
 #projects li {
     width: 200px;
     background-color: #ffffff;
-    border: 1px solid #dedede;
-    border-radius: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
     display: none; /** Hide items initially to avoid a flicker effect **/
     cursor: pointer;
-    padding: 4px;
-}
-
-#projects li.inactive {
-  visibility: hidden;
-  opacity: 0;
+    padding: 0;
 }
 
 #projects li img {
-  display: block;
+    display: block;
+}
+
+/**
+ * Some extra styles to randomize heights of grid items.
+ */
+#projects li:nth-child(3n) {
+    height: 175px;
+}
+
+#projects li:nth-child(4n-3) {
+    
+}
+
+#projects li:nth-child(5n) {
+    height: 250px;
+}
+
+#projects .project img {
+    width: 100%;
 }

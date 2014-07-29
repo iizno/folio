@@ -4,16 +4,18 @@
         <meta charset="UTF-8">
         <title>Teacup</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         
-        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.swipebox.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/bgPos.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.wookmark.js') }}"></script>
+        <script src="{{ asset('js/jquery.2.1.1.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.swipebox.min.js') }}"></script>
+        <script src="{{ asset('js/bgPos.js') }}"></script>
+        <script src="{{ asset('js/fastclick.js') }}"></script>
+        <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
 
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+        <link rel="stylesheet" href="{{ asset('css/pure.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/swipebox.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/teacup.css') }}" media="all">
 </head>
@@ -89,8 +91,10 @@
         </div>
     </div>
 
-    <script type="text/javascript">
+    <script>
     $(function() {
+
+        FastClick.attach(document.body);
 
         $('.nav-link').on( 'click', function () {
             var section = $(this).data('ref');
